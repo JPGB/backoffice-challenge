@@ -1,0 +1,39 @@
+<main class="login">
+  <div class="login-container">
+    <div class="login-title">Backoffice challenge</div>
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="username"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          required
+          [(ngModel)]="password"
+          name="password"
+        />
+      </div>
+      @if (wrongPassword()) {
+      <div class="login-wrongpassword">Wrong password, try again</div>
+      }
+      <button type="submit" class="login-submit">Login</button>
+    </form>
+
+    <hr />
+
+    <button type="button" class="login-with-google-btn" (click)="loginWithGoogle()">
+      Sign in with Google
+    </button>
+  </div>
+</main>

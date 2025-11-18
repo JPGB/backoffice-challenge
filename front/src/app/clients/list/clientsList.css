@@ -1,0 +1,133 @@
+.clients-container-list-searchbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.clients-container-header-addClient {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.clients-container-header-addClient:hover {
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.clients-container-list {
+  display: grid;
+}
+
+.clients-container-list-header {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 4rem repeat(2, minmax(0, 1fr)) 8rem 8rem 6rem 6rem;
+  text-wrap: wrap;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.25);
+}
+
+.clients-container-list-item-row {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 4rem repeat(2, minmax(0, 1fr)) 8rem 8rem 6rem 6rem;
+  text-wrap: wrap;
+  margin: 0.25rem;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.25);
+}
+
+.clients-container-list-header-item {
+  overflow-wrap: break-word;
+}
+
+.clients-container-list-item {
+  overflow-wrap: break-word;
+}
+
+.clients-container-list-item-avatar {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.clients-container-list-item-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.clients-container-list-item-actions {
+  display: none;
+}
+
+.clients-container-list-item-row:hover .clients-container-list-item-actions {
+  display: flex;
+}
+
+.clients-container-list-item-actions-edit:hover {
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.clients-container-list-item-actions-delete:hover {
+  color: rgba(148, 10, 10, 0.6);
+  cursor: pointer;
+}
+
+.clients-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.clients-modal-container {
+  position: absolute;
+  top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 4px 6px 36px 0px rgba(0, 0, 0, 0.46);
+  -webkit-box-shadow: 4px 6px 36px 0px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 4px 6px 36px 0px rgba(0, 0, 0, 0.46);
+
+  background-color: #fff;
+  height: 60%;
+  width: 40%;
+  border: 1px solid rgba(0, 0, 0, 0.253);
+}
+
+input {
+  width: 100%;
+  padding: 6px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.clients-container-list-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  font-size: 1.5rem;
+}

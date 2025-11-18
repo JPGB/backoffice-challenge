@@ -1,0 +1,80 @@
+<div class="clients-container-list-searchbar">
+  <div class="clients-container-header-search">
+    <span class="" style="font-size: 1.2rem">Search:</span>
+    <input type="text" [(ngModel)]="searchValue" />
+  </div>
+  <!-- <div class="">
+    filters:
+    <div class="" (click)="toggleActiveFilter()">
+      Active: @if (filters().active) {
+      <fa-icon [icon]="icons.regular.squareCheck" />
+      } @else {
+      <fa-icon [icon]="icons.regular.square" />
+      }
+    </div>
+  </div> -->
+  <div class="clients-container-header-addClient" (click)="setModalSignal('create')">
+    <fa-icon [icon]="icons.solid.userPlus" />
+    <span class="" style="font-size: 1rem">Create user</span>
+  </div>
+</div>
+<div class="clients-container-list">
+  <div class="clients-container-list-header">
+    <div class="clients-container-list-header-item">Picture</div>
+    <div class="clients-container-list-header-item">Name</div>
+    <div class="clients-container-list-header-item">Email</div>
+    <div class="clients-container-list-header-item">Identification</div>
+    <div class="clients-container-list-header-item">Agency</div>
+    <div class="clients-container-list-header-item">Active</div>
+  </div>
+  @for (client of filteredClients(); track client.id) {
+  <div class="clients-container-list-item-row">
+    <div class="clients-container-list-item">
+      <div class="clients-container-list-item-avatar">
+        <fa-icon [icon]="icons.regular.user" />
+      </div>
+    </div>
+    <span class="clients-container-list-item">{{ client.name }}</span>
+    <span class="clients-container-list-item">{{ client.email }}</span>
+    <span class="clients-container-list-item">{{ client.identification }}</span>
+    <span class="clients-container-list-item">{{ client.agency }}</span>
+    <span
+      class="clients-container-list-item"
+      style="cursor: pointer"
+      (click)="toggleActiveClient(client.id)"
+    >
+      @if (client.active) {
+      <fa-icon [icon]="icons.regular.squareCheck" />
+      } @else {
+      <fa-icon [icon]="icons.regular.square" />
+      }
+    </span>
+    <div class="clients-container-list-item-actions">
+      <fa-icon
+        [icon]="icons.regular.penToSquare"
+        class="clients-container-list-item-actions-edit"
+        (click)="selectedId = client.id; setModalSignal('edit')"
+      />
+      <!-- <fa-icon
+        (click)="removeClient(client.id)"
+        [icon]="icons.solid.ban"
+        class="clients-container-list-item-actions-delete"
+      /> -->
+    </div>
+  </div>
+  } @empty {
+  <div class="clients-container-list-empty">No client found! Go create some clients!</div>
+  }
+</div>
+
+@if (showModal()){
+<div class="clients-modal" (click)="setModalSignal(undefined); $event.stopPropagation()">
+  <div class="clients-modal-container" (click)="$event.stopPropagation()">
+    @if (showModal() == 'edit') {
+    <app-clients-edit [id]="selectedId" />
+    } @else if (showModal() == 'create') {
+    <app-clients-create />
+    }
+  </div>
+</div>
+}

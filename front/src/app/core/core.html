@@ -1,0 +1,30 @@
+<main class="core">
+  <nav class="core-side-bar">
+    <div class="core-side-bar-header">
+      <fa-icon [icon]="icons.solid.piggyBank" class="core-side-bar-header-icon" />
+      <span class="">
+        Backoffice<br />
+        challenge
+      </span>
+    </div>
+    <div class="core-side-bar-nav">
+      @for (item of navigationItems(); track $index) {
+      <div
+        [routerLink]="item.routerLink"
+        class="core-side-bar-nav-item"
+        [class]="{ 'core-side-bar-nav-item-active': item.active }"
+      >
+        <fa-icon [icon]="item.icon" class="core-side-bar-nav-item-icon" />
+        <span class="core-side-bar-nav-item-text">{{ item.text }}</span>
+      </div>
+      }
+    </div>
+    <div class="core-side-bar-nav-item-logoff" (click)="logoff()">
+      <fa-icon [icon]="icons.solid.doorOpen" class="core-side-bar-nav-item-icon" />
+      <span class="core-side-bar-nav-item-text">Logoff</span>
+    </div>
+  </nav>
+  <div class="core-content">
+    <router-outlet></router-outlet>
+  </div>
+</main>

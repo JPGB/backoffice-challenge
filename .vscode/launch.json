@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-BackofficeApplication<backoffice>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.backoffice.backoffice.BackofficeApplication",
+      "projectName": "backoffice",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
